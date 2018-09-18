@@ -62,6 +62,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
         
         if (dice !== 1 && dice !== previousRoll[0]){
         //add score 
+        roundScore += (dice+dice2);
         document.querySelector('#current-' + activePlayer).textContent = roundScore;
         previousRoll[0] = dice;
         console.log ('previousRoll ' + previousRoll);
@@ -73,12 +74,14 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
         
         
     }
-        //else if (bothDice.includes(1)){
-          //  nextPlayer();
-            //}
+        else if (bothDice.includes(1)){
+            console.log (bothDice);
+           nextPlayer();
+            }
             
         else {
-            nextPlayer();
+            //nextPlayer();
+            console.log('hullo')
         }
         
     }
@@ -125,6 +128,7 @@ function nextPlayer() {
     document.querySelector('.player-1-panel').classList.toggle('active');
     
     document.querySelector('.dice').style.display = 'none';
+    document.querySelector('.dice2').style.display = 'none';
 } 
 
 
@@ -137,6 +141,7 @@ function init () {
     
     gamePlaying = true
     document.querySelector('.dice').style.display = 'none';
+    document.querySelector('.dice2').style.display = 'none';
     
     document.getElementById('score-0').textContent = '0';
     document.getElementById('score-1').textContent = '0';
